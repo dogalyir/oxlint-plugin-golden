@@ -1,6 +1,6 @@
-import { defineRule } from "@oxlint/plugins";;
+import { defineRule } from "@oxlint/plugins";
 
-import { unwrapTypeParentheses } from "../shared/types.ts";;
+import { unwrapTypeParentheses } from "../shared/types.ts";
 
 /**
  * Detect the empty object type `{}` and its use as a redundant intersection

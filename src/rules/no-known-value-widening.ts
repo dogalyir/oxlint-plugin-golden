@@ -1,7 +1,7 @@
-import { defineRule, type ESTree, type Scope, type SourceCode, type Variable } from "@oxlint/plugins";;
+import { defineRule, type ESTree, type Scope, type SourceCode, type Variable } from "@oxlint/plugins";
 
-import { classifyWideningTarget, createTypeEnvironment, isKnownEvidenceExpression, type TypeEnvironment, type WideningTarget } from "../shared/dictionary-types.ts";;
-import { isEmptyObjectExpression, unwrapExpression } from "../shared/types.ts";;
+import { classifyWideningTarget, createTypeEnvironment, isKnownEvidenceExpression, type TypeEnvironment, type WideningTarget } from "../shared/dictionary-types.ts";
+import { isEmptyObjectExpression, unwrapExpression } from "../shared/types.ts";
 
 ;
 ;

@@ -1,21 +1,21 @@
-import { definePlugin, eslintCompatPlugin } from "@oxlint/plugins";;
+import { definePlugin, eslintCompatPlugin } from "@oxlint/plugins";
 
-import { noBooleanParametersRule } from "./rules/no-boolean-parameters.ts";;
-import { noChainedTypeAssertionsRule } from "./rules/no-chained-type-assertions.ts";;
-import { noDeepOptionalChainingRule } from "./rules/no-deep-optional-chaining.ts";;
-import { noEmptyObjectTypesRule } from "./rules/no-empty-object-types.ts";;
-import { noGenericNamesRule } from "./rules/no-generic-names.ts";;
-import { noKnownValueWideningRule } from "./rules/no-known-value-widening.ts";;
-import { noNestedConditionalsRule } from "./rules/no-nested-conditionals.ts";;
-import { noObjectParametersRule } from "./rules/no-object-parameters.ts";;
-import { noRedundantOptionalUndefinedRule } from "./rules/no-redundant-optional-undefined.ts";;
-import { noRuntimeTypeofRule } from "./rules/no-runtime-typeof.ts";;
-import { noUnknownParametersRule } from "./rules/no-unknown-parameters.ts";;
-import { noUnknownReturnsRule } from "./rules/no-unknown-returns.ts";;
-import { noUnknownTypeAliasesRule } from "./rules/no-unknown-type-aliases.ts";;
-import { noUnsafeDictionaryTypeRule } from "./rules/no-unsafe-dictionary-type.ts";;
-import { noWidenThenAssertRule } from "./rules/no-widen-then-assert.ts";;
-import { requireSafetyCommentForTypeAssertionRule } from "./rules/require-safety-comment-for-type-assertion.ts";;
+import { noBooleanParametersRule } from "./rules/no-boolean-parameters.ts";
+import { noChainedTypeAssertionsRule } from "./rules/no-chained-type-assertions.ts";
+import { noDeepOptionalChainingRule } from "./rules/no-deep-optional-chaining.ts";
+import { noEmptyObjectTypesRule } from "./rules/no-empty-object-types.ts";
+import { noGenericNamesRule } from "./rules/no-generic-names.ts";
+import { noKnownValueWideningRule } from "./rules/no-known-value-widening.ts";
+import { noNestedConditionalsRule } from "./rules/no-nested-conditionals.ts";
+import { noObjectParametersRule } from "./rules/no-object-parameters.ts";
+import { noRedundantOptionalUndefinedRule } from "./rules/no-redundant-optional-undefined.ts";
+import { noRuntimeTypeofRule } from "./rules/no-runtime-typeof.ts";
+import { noUnknownParametersRule } from "./rules/no-unknown-parameters.ts";
+import { noUnknownReturnsRule } from "./rules/no-unknown-returns.ts";
+import { noUnknownTypeAliasesRule } from "./rules/no-unknown-type-aliases.ts";
+import { noUnsafeDictionaryTypeRule } from "./rules/no-unsafe-dictionary-type.ts";
+import { noWidenThenAssertRule } from "./rules/no-widen-then-assert.ts";
+import { requireSafetyCommentForTypeAssertionRule } from "./rules/require-safety-comment-for-type-assertion.ts";
 
 /**
  * The Golden Rules plugin: TypeScript safety rules derived from

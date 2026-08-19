@@ -1,6 +1,6 @@
-import { defineRule, type ESTree } from "@oxlint/plugins";;
+import { defineRule, type ESTree } from "@oxlint/plugins";
 
-import { unwrapTypeParentheses } from "../shared/types.ts";;
+import { unwrapTypeParentheses } from "../shared/types.ts";
 
 ;
 

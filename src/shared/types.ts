@@ -1,4 +1,4 @@
-import { type ESTree, type Options } from "@oxlint/plugins";;
+import { type ESTree, type Options } from "@oxlint/plugins";
 
 /**
  * Unwrap `ParenthesizedExpression` nodes, returning the innermost non-paren expression.

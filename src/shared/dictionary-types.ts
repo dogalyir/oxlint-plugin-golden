@@ -1,6 +1,6 @@
-import { isWrappingExpression, unwrapTypeParentheses } from "./types.ts";;
+import { isWrappingExpression, unwrapTypeParentheses } from "./types.ts";
 
-import { type ESTree } from "@oxlint/plugins";;
+import { type ESTree } from "@oxlint/plugins";
 
 /**
  * The concrete kind of an unsafe dictionary value type, used in diagnostics.

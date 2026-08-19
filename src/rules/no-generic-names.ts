@@ -1,6 +1,6 @@
-import { defineRule, type Context, type ESTree } from "@oxlint/plugins";;
+import { defineRule, type Context, type ESTree } from "@oxlint/plugins";
 
-import { readStringListOption } from "../shared/types.ts";;
+import { readStringListOption } from "../shared/types.ts";
 
 ;
 

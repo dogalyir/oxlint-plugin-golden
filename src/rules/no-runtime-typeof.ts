@@ -1,4 +1,4 @@
-import { defineRule, type ESTree } from "@oxlint/plugins";;
+import { defineRule, type ESTree } from "@oxlint/plugins";
 
 ;
 

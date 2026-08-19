@@ -1,4 +1,4 @@
-import { RuleTester } from "oxlint/plugins-dev";;
+import { RuleTester } from "oxlint/plugins-dev";
 
 /**
  * A `RuleTester` configured for TypeScript sources.
