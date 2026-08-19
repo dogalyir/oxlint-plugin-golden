@@ -47,8 +47,8 @@ honesta)
 ## Sección 3 — Explicit Control Flow (Early / Easy Return)
 | Política | Estado | Mecanismo |
 | --- | --- | --- |
-| Early/easy return en vez de anidar | 🆕 | `golden/no-nested-conditionals` (if dentro de if sin else → aplanable); `prefer-early-return` NO existe en 1.79 |
-| Evitar optional chaining profundo | 🆕 | `golden/no-deep-optional-chaining` (cadenas ≥2 `?.`; un solo `?.` permitido por ser legítimo para valores opcionales) |
+| Early/easy return en vez de anidar | ✅ | `golden/no-nested-conditionals` (if dentro de if sin else → aplanable); `prefer-early-return` NO existe en 1.79 |
+| Evitar optional chaining profundo | ✅ | `golden/no-deep-optional-chaining` (cadenas ≥2 `?.`; un solo `?.` permitido por ser legítimo para valores opcionales) |
 | Checks explícitos vs truthy/falsy (`if (!value)`) | 🚫 | Requiere info de tipos para no false-positivar sobre booleanos |
 | Ternarios complejos/encadenados | ⚙️ | nativa `no-nested-ternary` + `no-unneeded-ternary` |
 | No continuar tras estado inválido | 🚫 | Dataflow; no demostrable sintácticamente |
@@ -68,7 +68,7 @@ honesta)
 | Política | Estado | Mecanismo |
 | --- | --- | --- |
 | Funciones pequeñas/una responsabilidad | 🚫 | Métrica frágil |
-| Evitar boolean params que cambian comportamiento | 🆕 | `golden/no-boolean-parameters` (param `boolean` sin prefijo booleano `is/has/should/can/allow/...`; opción configurable) |
+| Evitar boolean params que cambian comportamiento | ✅ | `golden/no-boolean-parameters` (param `boolean` sin prefijo booleano `is/has/should/can/allow/...`; opción configurable) |
 | Side effects ocultos | 🚫 | Naming/semántica |
 | Funciones deterministas | 🚫 | No demostrable |
 | Reglas de negocio duplicadas | 🚫 | Semántico |
@@ -84,8 +84,8 @@ honesta)
 ## Sección 7 — Async, Promises, Side Effects
 | Política | Estado | Mecanismo |
 | --- | --- | --- |
-| Floating promises | ⚙️ | nativa `no-floating-promises` |
-| `await` innecesario al retornar promise | ⚙️ | nativa `no-return-await` (`no-useless-await` NO existe en 1.79; alternativa verificada) + `require-await` |
+| Floating promises | 🚫 | `no-floating-promises` NO dispara en 1.79 ni con `--type-aware` (verificado) → límite documentado |
+| `await` innecesario al retornar promise | 🚫 | `no-return-await` rechazado por el config build de 1.79 → límite; `require-await` ⚙️ cubre el espíritu |
 | Flujo async lineal (sin mezclar .then/async) | 🚫 | Estilo |
 | Validar antes de side effects | 🚫 | Dataflow |
 | Resultados tipados para ops fallibles | ✅/🚫 | Parcial: no-unknown-returns |
@@ -95,13 +95,13 @@ honesta)
 | --- | --- | --- |
 | Validar arrays antes de indexar | ✅ | Type system: `noUncheckedIndexedAccess` en tsconfig (documentado) |
 | No asumir keys de objetos | ✅/🚫 | Parcial: no-unsafe-dictionary-type; resto semántico |
-| No mutar inputs | ⚙️ | nativa `no-param-reassign` |
+| No mutar inputs | ⚙️ | nativa `no-param-reassign` (`props: true`) |
 | Transformaciones inmutables | 🚫 | Semántico |
 
 ## Sección 9 — Naming and Domain Clarity
 | Política | Estado | Mecanismo |
 | --- | --- | --- |
-| Nombres genéricos (`data/item/payload/result`) | 🆕 | `golden/no-generic-names` (lista configurable; patrón anti-slop `no-shape-in-symbol-names`) |
+| Nombres genéricos (`data/item/payload/result`) | ✅ | `golden/no-generic-names` (lista configurable; patrón anti-slop `no-shape-in-symbol-names`) |
 | Nombres booleanos legibles | ✅/🚫 | Parcial: exención de prefijos en no-boolean-parameters; resto límite |
 | Abreviaturas no de dominio | 🚫 | Semántico |
 | Valores intermedios nombrados | 🚫 | Semántico |
@@ -110,7 +110,7 @@ honesta)
 | Política | Estado | Mecanismo |
 | --- | --- | --- |
 | Reusar módulos antes que nuevas deps | 🚫 | Semántico |
-| Dependencias circulares | ⚙️ | nativa `no-cycle` |
+| Dependencias circulares | ⚙️ | nativa `no-cycle` (requiere plugin `import` habilitado) |
 | Imports duplicados | ⚙️ | nativa `no-duplicate-imports` |
 | Barrel exports amplios | 🚫 | `import/no-barrel-file` no existe en 1.79 |
 
@@ -195,6 +195,10 @@ Excluidas con justificación:
 ---
 
 # Estado (se actualiza por tarea)
-- task-1: ✅ gap analysis completado (mapa arriba; disponibilidad nativa verificada con
-  config + `--print-config` en oxlint 1.79).
-- task-2 a task-7: pendientes.
+- task-1: ✅ gap analysis completado (mapa arriba; disponibilidad nativa verificada con config + `--print-config` en oxlint 1.79).
+- task-2: ✅ 4 reglas custom nuevas implementadas + 59 tests nuevos (194 total); 16 reglas `golden/*` como `deny` en `--print-config`; plugin se auto-lintea limpio.
+- task-3: ✅ 10 reglas nativas activadas y verificadas disparando en fixtures (ver Task-3 abajo); se fusionaron imports value+type en 20 archivos y se corrigieron 2 magic numbers + 1 ternario anidado para auto-lint limpio.
+- task-4: ✅ package.json → `oxlint-plugin-golden` (publishConfig public, repository CarmeloCampos/oxlint-plugin-golden, files [dist,README,LICENSE], main/exports → dist); LICENSE MIT; `bun build` → dist/index.js; `npm publish --dry-run` OK (4 archivos); dist verificado cargando como jsPlugins (10 reglas disparando).
+- task-5: ✅ workflows CI/publish + composite check action (modelo opencode-auto-translate); commit inicial `f2962ee` en rama `main` (50 archivos, `.pi/` excluido).
+- task-6: ✅ README reescrito (instalación npm + local, catálogo 16 reglas con ejemplos válidos/inválidos, reglas nativas, límites actualizados, sección Publishing) y este PLAN.md actualizado.
+- task-7: pendiente (verificación end-to-end final).
