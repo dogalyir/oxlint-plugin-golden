@@ -425,11 +425,35 @@ Adding a rule: create `src/rules/<name>.ts` with `defineRule`, register it in
 
 Releases publish automatically via
 [`.github/workflows/publish.yml`](.github/workflows/publish.yml) when a GitHub Release
-tagged `v<version>` is published — the tag must match `package.json`'s `version`, the
-composite check (`bun install --frozen-lockfile` → `bun run check` → `npm pack
---dry-run`) must pass, and `npm publish` runs with public access and provenance
-(`id-token: write`). The package requires an `npm` environment secret (`NODE_AUTH_TOKEN`)
-on the repository.
+is published. **No npm token is stored in the repository.**
+
+How it works — one-time setup on npmjs.com:
+
+1. Go to npmjs.com → *Access Tokens* → *GitHub Actions* (Trusted Publishing).
+2. Link the repository `dogalyir/oxlint-plugin-golden` to the npm account that owns
+   the package.
+3. That's it: the workflow's `id-token: write` permission lets `npm publish`
+   authenticate via OIDC and attach provenance automatically (same mechanism as
+   `opencode-auto-translate`).
+
+The `npm` environment is created automatically on the first run (no secrets, no
+protection rules). The workflow verifies that the release tag matches `v` +
+`package.json` version, runs the composite check, then publishes with public access
+and provenance.
+
+Creating a version so it publishes:
+
+```bash
+# 1. bump version (patch/minor/major) — commit + tag vX.Y.Z
+npm version patch -m "chore: release v%s"
+git push origin main --tags
+
+# 2. create the GitHub Release for that tag (triggers publish.yml)
+gh release create v0.1.1 --generate-notes
+```
+
+The first version of a brand-new package can also be published manually once
+(`npm login && npm publish`), then all future releases go through the workflow.
 
 ## License
 
