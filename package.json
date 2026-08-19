@@ -1,6 +1,6 @@
 {
   "name": "oxlint-plugin-golden",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Opinionated Oxlint rules derived from a strict TypeScript coding standard: no forced casts, no unknown flow, explicit control flow, domain naming.",
   "keywords": [
     "oxlint",
