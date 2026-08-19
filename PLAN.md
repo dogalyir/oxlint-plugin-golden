@@ -198,7 +198,7 @@ Excluidas con justificación:
 - task-1: ✅ gap analysis completado (mapa arriba; disponibilidad nativa verificada con config + `--print-config` en oxlint 1.79).
 - task-2: ✅ 4 reglas custom nuevas implementadas + 59 tests nuevos (194 total); 16 reglas `golden/*` como `deny` en `--print-config`; plugin se auto-lintea limpio.
 - task-3: ✅ 10 reglas nativas activadas y verificadas disparando en fixtures (ver Task-3 abajo); se fusionaron imports value+type en 20 archivos y se corrigieron 2 magic numbers + 1 ternario anidado para auto-lint limpio.
-- task-4: ✅ package.json → `oxlint-plugin-golden` (publishConfig public, repository CarmeloCampos/oxlint-plugin-golden, files [dist,README,LICENSE], main/exports → dist); LICENSE MIT; `bun build` → dist/index.js; `npm publish --dry-run` OK (4 archivos); dist verificado cargando como jsPlugins (10 reglas disparando).
+- task-4: ✅ package.json → `oxlint-plugin-golden` (publishConfig public, repository dogalyir/oxlint-plugin-golden, files [dist,README,LICENSE], main/exports → dist); LICENSE MIT; `bun build` → dist/index.js; `npm publish --dry-run` OK (4 archivos); dist verificado cargando como jsPlugins (10 reglas disparando).
 - task-5: ✅ workflows CI/publish + composite check action (modelo opencode-auto-translate); commit inicial `f2962ee` en rama `main` (50 archivos, `.pi/` excluido).
 - task-6: ✅ README reescrito (instalación npm + local, catálogo 16 reglas con ejemplos válidos/inválidos, reglas nativas, límites actualizados, sección Publishing) y este PLAN.md actualizado.
 - task-7: pendiente (verificación end-to-end final).

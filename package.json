@@ -11,14 +11,14 @@
     "eslint",
     "code-quality"
   ],
-  "homepage": "https://github.com/CarmeloCampos/oxlint-plugin-golden#readme",
+  "homepage": "https://github.com/dogalyir/oxlint-plugin-golden#readme",
   "bugs": {
-    "url": "https://github.com/CarmeloCampos/oxlint-plugin-golden/issues"
+    "url": "https://github.com/dogalyir/oxlint-plugin-golden/issues"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CarmeloCampos/oxlint-plugin-golden.git"
+    "url": "git+https://github.com/dogalyir/oxlint-plugin-golden.git"
   },
   "files": [
     "dist",
